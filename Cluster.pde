@@ -6,7 +6,7 @@ public class Cluster
   {
     //your code here
     for (int i = 0; i < 7; i++) {
-      Tendril stuff = new Tendril(len, (int)(Math.random()*7)*2*Math.PI/7, x, y);
+      Tendril stuff = new Tendril(len, (Math.random()*7)*2*Math.PI/7, x, y);
       stuff.show();
     }
   }
