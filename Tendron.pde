@@ -1,25 +1,28 @@
 int size;
 boolean sizeup, sizedown, pause;
+Cluster c;
 public void setup()
 {
   size(500, 500);  
   background(255);
   frameRate(20);
   size = 50;
-  pause = true;
+  pause = false;
+  background(0);
 }
 
 public void draw()
 {
-  background(0);
   if (sizeup)
     size++;
   if (sizedown)
     size--;
   if (size < 4)
     size = 4;
-  if (!pause)
-    Cluster c = new Cluster(size, 250, 250); // initial number of segments in the tendril and starting (x,y) coordinate
+  if (!pause){
+    background(0);
+    c = new Cluster(size, 250, 250); // initial number of segments in the tendril and starting (x,y) coordinate
+  }
 }
 public void mousePressed()
 {
@@ -32,6 +35,9 @@ public void keyPressed(){
   }
   if (keyCode == 38){
     sizeup = true;
+  }
+  if (keyCode == 32){
+    redraw();
   }
 }
 public void keyReleased(){
