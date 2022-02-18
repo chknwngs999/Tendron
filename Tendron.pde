@@ -26,7 +26,8 @@ public void draw()
 }
 public void mousePressed()
 {
-  pause = !pause;
+  background(0);
+    c = new Cluster(size, 250, 250); // initial number of segments in the tendril and starting (x,y) coordinate
 }
 
 public void keyPressed(){
@@ -37,7 +38,7 @@ public void keyPressed(){
     sizeup = true;
   }
   if (keyCode == 32){
-    redraw();
+    pause = !pause;
   }
 }
 public void keyReleased(){
