@@ -1,12 +1,12 @@
 int size;
-boolean sizeup, sizedown;
+boolean sizeup, sizedown, pause;
 public void setup()
 {
   size(500, 500);  
   background(255);
-  //noLoop();
   frameRate(20);
   size = 50;
+  pause = true;
 }
 
 public void draw()
@@ -18,11 +18,12 @@ public void draw()
     size--;
   if (size < 4)
     size = 4;
-  Cluster c = new Cluster(size, 250, 250); // initial number of segments in the tendril and starting (x,y) coordinate
+  if (!pause)
+    Cluster c = new Cluster(size, 250, 250); // initial number of segments in the tendril and starting (x,y) coordinate
 }
 public void mousePressed()
 {
-  redraw();
+  pause = !pause;
 }
 
 public void keyPressed(){
@@ -30,9 +31,8 @@ public void keyPressed(){
     sizedown = true;
   }
   if (keyCode == 38){
-    sizeup = true;;
+    sizeup = true;
   }
-  System.out.println(keyCode);
 }
 public void keyReleased(){
   if (keyCode == 40){
@@ -41,5 +41,4 @@ public void keyReleased(){
   if (keyCode == 38){
     sizeup = false;
   }
-  
 }
